@@ -1,0 +1,22 @@
+name: Honeycomb Honeymarker
+description: Add Honeycomb Markers
+
+inputs:
+  apikey:
+    description: API key
+    required: true
+  dataset:
+    description: Honeycomb dataset
+    required: true
+  type:
+    description: Identifier for marker (e.g. "deploys")
+    required: false
+    default: "deploys"
+  message:
+    description: Custom message
+    required: false
+    default: ${{ github.run_number }}-${{ job.status }} 
+
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
